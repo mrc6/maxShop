@@ -39,7 +39,7 @@ const compradorParameters = {
     shippingAddressCity:"Sao Paulo",
     shippingAddressState:"SP",
     shippingAddressCountry:"BRA",
-    extraAmount:"0.01",
+    extraAmount:"0.00",
     redirectURL:"http://sitedocliente.com",
     notificationURL:"https://url_de_notificacao.com",
     maxUses:"1",

@@ -218,7 +218,7 @@ function sendToApi() {
     redirect: 'follow'
     };
 
-    fetch(cors_api_url + apiToFetch, requestOptions)
+    fetch(apiToFetch, requestOptions)
     .then(response => response.text())
     .then((result) => {
         // console.log(result);

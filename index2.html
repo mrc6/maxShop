@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Reading Data from XML Files</title>
+    <meta name="viewport" content="width=device-width">
+    <link rel="stylesheet" href="main.css" />
+</head>
+<body>
+    <header>
+        <h1>Reading Data from XML Files</h1>
+    </header>
+    <main>
+        <ul id="swords"></ul>
+        <ul id="houses"></ul>
+        <pre id="output"></pre>
+    </main>   
+    <script>
+        // data to be sent to the POST request
+        const vendorData = {
+            email: 'marco_meireles@ig.com.br',
+            token: 'AA91EBBCCCD547E9ABA425583D6B59BA',
+        };
+        let _data = `<checkout>
+  <sender>
+    <name>Jose Comprador</name>
+    <email>comprador@uol.com.br</email>
+    <phone>
+      <areaCode>99</areaCode>
+      <number>999999999</number>
+    </phone>
+    <documents>
+      <document>
+        <type>CPF</type>
+        <value>11475714734</value>
+      </document>
+    </documents>
+  </sender>
+  <currency>BRL</currency>
+  <items>
+    <item>
+      <id>0001</id>
+      <description>Caneca Logistica</description>
+      <amount>29.99</amount>
+      <quantity>1</quantity>
+      <weight>1</weight>
+      <shippingCost>0.00</shippingCost>
+    </item>
+  </items>
+  <redirectURL>http://lojamodelo.com.br/return.html</redirectURL>
+  <extraAmount>0.00</extraAmount>
+  <reference>REF1234</reference>
+  <shipping>
+    <address>
+      <street>R Eduardo Brochado</street>
+      <number>35</number>
+      <complement>Casa</complement>
+      <district>Palmeiras</district>
+      <city>Belo Horizonte</city>
+      <state>MG</state>
+      <country>BRA</country>
+      <postalCode>30575730</postalCode>
+    </address>
+    <type>1</type>
+    <cost>25.00</cost>
+    <addressRequired>true</addressRequired>
+  </shipping>
+  <timeout>25</timeout>
+  <maxAge>999999999</maxAge>
+  <maxUses>999</maxUses>
+  <receiver>
+    <email>marco_meireles@ig.com.br</email>
+  </receiver>
+  <enableRecover>false</enableRecover>
+</checkout>`;
+        fetch('https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=marco_meireles@ig.com.br&token=AA91EBBCCCD547E9ABA425583D6B59BA',{ mode: 'no-cors'}, {
+                method: "POST",
+                body: _data,
+                headers: {
+                "Content-type": "application/xml; charset=ISO-8859-1"
+                }
+            })
+            //.then(response => response.json())
+            //    .then(json => console.log(json))
+            .then(response => console.log(response))
+            .catch(err => console.log(err));
+            var book = `<cookbook>
+                <bookid>
+                    <booktitle>something delicious</booktitle>
+                        <author>someone</author>
+                    </bookid>
+                        <bookid>
+                            <booktitle>something else delicious</booktitle>
+                            <author>someone</author>
+                        </bookid>
+            </cookbook>`;
+
+var parser = new DOMParser();
+var xmlDoc = parser.parseFromString(book, "text/xml");
+var first = xmlDoc.getElementsByTagName("booktitle")[0].childNodes[0].nodeValue;
+
+console.log(first);
+    </script>
+</body>
+</html>

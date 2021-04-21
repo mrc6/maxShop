@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <title>Caneca Logística</title>
+        <style>
+            h1   {color: blue;}
+            .mainContent {
+                display: flex;
+                flex-direction: column;
+            }
+            .calculos {
+                display: flex;
+                flex-direction: row;
+            }
+            .fichaTecnica {
+                display: flex;
+                flex-direction: column;
+                width: 40vw;
+            }
+            .imgProduto {
+                display: flex;
+                flex-direction: column;
+                width: 40vw;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="mainContent">
+            <div class="descricaoProduto">
+                <h3 id="tituloProduto"></h3>
+            </div>
+            <div id="calculos" class="calculos">
+                <div class="imagemProduto">
+                    <img id="imgProduto" src="" height="538px" width="538px" />
+                </div>
+                <div id="calcularFrete" class="calculaFrete">
+                    <p id="valorProduto">Preço: R$</p><br />
+                    <label name="cep">Digite seu CEP</label><br />
+                    <input id="cep" type="text" name="cep" maxlength="9"/><br />
+                    <p id="freteCalculado">Valor do Frete: R$</p><br />
+                    <button onclick="calculaFrete()">Calcular Frete</button><br />
+                    <p id="total"></p>
+    
+                </div>
+            </div>
+            <div class="fichaTecnica">
+                <p id="fichaTecnica">Ficha Técnica</p>
+                <p id="descricaoFichaTecnica">
+                    Caneca personalizada um presente único exclusivo que vai encantar o presenteado e a você mesmo,
+                    arte criada por nós com muito carinho que só vai encontra aqui. <br> <br>
+                    Informações Técnicas <br> <br>
+                    QUANTIDADE: 1 CANECA <br>
+                    Formato : Cilíndrico <br>
+                    Material: cerâmica <br>
+                    Tamanho: 9,5 cm altura x 8 cm diâmetro <br>
+                    Capacidade: 325 ml <br> <br>
+                    Instruções de lavagem: O ideal é lavar a caneca com esponja macia com água e sabão neutro. <br> <br>
+                    !!!!!ATENÇÃO SE FICO COM ALGUMA DUVIDA ENTRE EM CONTATO COM NÓS PARA TIRAR SUA DUVIDA, FAÇA A COMPRA QUANDO NÃO TIVER DUVIDA ALGUMA!!!!!
+                </p>
+            </div>
+            <div id="comprar" class="comprar"></div>
+            
+        </div>
+        <script src="canecaLogistica.js"></script>
+    </body>
+
+</html>

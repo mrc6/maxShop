@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <body>
+    </body>
+    <script>
+        const vendorData = {
+            email: 'marco_meireles@ig.com.br',
+            token: 'AA91EBBCCCD547E9ABA425583D6B59BA',
+        };
+        const userData = {
+
+        };
+        fetch('https://ws.sandbox.pagseguro.uol.com.br/v2/checkout', {
+	        method: 'POST',
+	        params: 'email=' + encodeURIComponent(vendorData.email) + 'token=' + encodeURIComponent(vendorData.token),
+            body: 'title=' + encodeURIComponent('My awesome new article') + '&body=' + encodeURIComponent('This is the text of my article'),
+	        headers: {
+		        'Content-Type': 'application/x-www-form-urlencoded',
+                'Access-Control-Allow-Origin': '*',
+	        },
+	        referrer: 'no-referrer'
+        }).then(function (response) {
+	        // The API call was successful!
+	        if (response.ok) {
+		        return response.json();
+	        } else {
+		        return Promise.reject(response);
+	        }
+        }).then(function (data) {
+	        // This is the JSON from our response
+	        console.log(data);
+        }).catch(function (err) {
+	        // There was an error
+	        console.warn('Something went wrong.', err);
+        });
+    </script>
+</html>

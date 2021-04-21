@@ -15,60 +15,6 @@ const jsonBody = {
     nVlValorDeclarado: '0',
     sCdAvisoRecebimento: 'n'
 };
-const comprador = {
-checkout: {
-    sender: {
-        name: "Jose Comprador",
-        email: "jose.comprador@sandbox.pagseguro.com.br",
-        phone: {
-            areaCode: "99",
-            number: "999999999"
-        },
-        documents: {
-            document: {
-                type: "CPF",
-                value: "11475714734"
-            }
-        }
-    },
-    currency: "BRL",
-    items: {
-        item: {
-            id: "0001",
-            description: "Caneca Logistica",
-            amount: "29.99",
-            quantity: "1",
-            weight: "1",
-            shippingCost: "0.00"
-        }
-    },
-    redirectURL: "http://lojamodelo.com.br/return.html",
-    extraAmount: "0.00",
-    reference: "REF1234",
-    shipping: {
-        address: {
-            street: "R Eduardo Brochado",
-            number: "35",
-            complement: "Casa",
-            district: "Palmeiras",
-            city: "Belo Horizonte",
-            state: "MG",
-            country: "BRA",
-            postalCode: "30575730"
-        },
-        type: "1",
-        cost: "25.99",
-        addressRequired: "true"
-    },
-    timeout: "25",
-    maxAge: "999999999",
-    maxUses: "999",
-    receiver: {
-        email: "marco_meireles@ig.com.br"
-    },
-    enableRecover: "false"
-}
-};
 
 const compradorParameters = {
     currency:"BRL",
@@ -167,6 +113,7 @@ for (var m in o)
 return tab ? xml.replace(/\t/g, tab) : xml.replace(/\t|\n/g, "");
 }
 
+
 function getString(o) { // transforma um objeto js em url-encoded params
 
     function iter(o, path) {
@@ -199,12 +146,16 @@ function getString(o) { // transforma um objeto js em url-encoded params
 }
 
 function redirecionaCheckout(response) {
-    console.log("Resposta da API", response);
+    const jsonObj = xmlToJSON.parseString(response); // Convert XML to JSON
+    const codigoCheckout = jsonObj.checkout[0].code[0]._text;
+    console.log("Resposta da API XML", jsonObj);
+
+    window.location.replace(`https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=${codigoCheckout}`);
 };
 
 function sendToApi() {
-    var cors_api_url = 'https://cors-anywhere.herokuapp.com/';
-    const apiToFetch = "https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=marco_meireles@ig.com.br&token=AA91EBBCCCD547E9ABA425583D6B59BA";
+    // const apiToFetch = "https://ws.sandbox.pagseguro.uol.com.br/v2/checkout?email=marco_meireles@ig.com.br&token=AA91EBBCCCD547E9ABA425583D6B59BA";
+    const apiToFetch = "https://corspagsegurocheckout.herokuapp.com/";
     var myHeaders = new Headers();
     myHeaders.append("XML", "application/xml; charset=ISO-8859-1");
     myHeaders.append("Content-Type", "application/x-www-form-urlencoded");

@@ -26,6 +26,33 @@
                 height: auto;
                 width: 90vw;
             }
+            @media only screen and (min-width: 1200px) {
+                body {
+                    width: 600px;
+                }
+                input {
+                    font-size: large;
+                    height: auto;
+                    width: 600px;
+                }
+                fieldset {
+                    font-size: large;
+                }
+                label {
+                    font-size: large;
+                }
+                p {
+                    font-size: large;
+                    padding-left: 10px;
+                }
+                #cadastrar {
+                    background-color: green;
+                    color: white;
+                    font-size: large;
+                    height: auto;
+                    width: 600px;
+                }   
+            }
         </style>
     </head>
     <body>
@@ -51,7 +78,7 @@
                     <input id="email" type="text" name="senderEmail" /><br />
 
                     <p>Endereço</p>
-                    <label for="shippingAddressStreet">Rua</label>
+                    <label for="shippingAddressStreet">Rua / Av.</label>
                     <input id="rua" type="text" name="shippingAddressStreet" /><br />
                     <label for="shippingAddressNumber">Número</label>
                     <input id="numeroEndereco" type="text" name="shippingAddressNumber" /><br />

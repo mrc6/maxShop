@@ -1,3 +1,37 @@
+// funções iniciais
+const redireciona = () => {
+    let dadosCliente = JSON.parse(localStorage.getItem("shopMaxDC01"));
+    if(!dadosCliente){
+        window.location.replace("./index.html");
+    }
+}
+
+redireciona();
+
+
+const usuarioLogado = () => {
+    let dadosCliente = JSON.parse(localStorage.getItem("shopMaxDC01"));
+    const newDiv = document.createElement("div");
+    newDiv.id = "usuarioLogado";
+    const user = document.createElement("p");
+    user.innerHTML = dadosCliente['senderName'];
+    const sairBTN = document.createElement("button");
+    sairBTN.innerHTML = "Sair";
+    sairBTN.id = 'sairBTN';
+    const tituloHTML = document.getElementsByClassName('descricaoProduto');
+    newDiv.appendChild(user);
+    newDiv.appendChild(sairBTN);
+    tituloHTML[0].appendChild(newDiv);
+
+    sairBTN.addEventListener('click', function logoff() {
+        localStorage.removeItem("shopMaxDC01");
+        redireciona();
+    });
+}
+
+usuarioLogado();
+
+
 // parametros
 const jsonBody = {
     nCdEmpresa: '',

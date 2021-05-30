@@ -14,6 +14,7 @@ const usuarioLogado = () => {
     const newDiv = document.createElement("div");
     newDiv.id = "usuarioLogado";
     const user = document.createElement("p");
+    user.id = 'userName';
     user.innerHTML = dadosCliente['senderName'];
     const sairBTN = document.createElement("button");
     sairBTN.innerHTML = "Sair";

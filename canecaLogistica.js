@@ -185,7 +185,8 @@ function redirecionaCheckout(response) {
     const codigoCheckout = jsonObj.checkout[0].code[0]._text;
     console.log("Resposta da API XML", jsonObj);
 
-    window.location.replace(`https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=${codigoCheckout}`);
+    // window.location.replace(`https://sandbox.pagseguro.uol.com.br/v2/checkout/payment.html?code=${codigoCheckout}`); // sandbox
+    window.location.replace(`https://pagseguro.uol.com.br/v2/checkout/payment.html?code=${codigoCheckout}`); // produção
 };
 
 function sendToApi() {

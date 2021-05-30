@@ -57,6 +57,7 @@ let precoCalculadoFrete = "0,00";
 const valorFreteCalculado = document.getElementById('freteCalculado');
 const valorTotal = document.getElementById('total');
 let cepCliente = document.getElementById('cep');
+let observation = document.getElementById('observacao');
 let payload = {};
 
 // funcoes
@@ -193,6 +194,7 @@ function removeBotaoComprar() {
 };
 
 function preencheDados() {
+    const observationDescription = observation.value;
     valorFreteCalculado.innerText = `Valor do Frete: R$: ${precoCalculadoFrete}`;
     const soma = commaStingToNumber(precoCalculadoFrete) + commaStingToNumber(precoProduto);
     valorTotal.innerText = `Valor total - R$: ${soma}`;
@@ -205,7 +207,7 @@ function preencheDados() {
     const clientData = JSON.parse(localStorage.getItem("shopMaxDC01"));
     payload = { ...compradorParameters, ...clientData };
 
-    payload.itemDescription1 = productDescription;
+    payload.itemDescription1 = `${productDescription} - ${observationDescription}`;
     payload.reference = referencia;
     payload.itemAmount1 = precoProduto.replace(",",".");
     payload.shippingCost = precoCalculadoFrete.replace(",", ".");
@@ -223,6 +225,9 @@ function calculaFrete() {
     const cepDestino = cepCliente.value.replace("-", "");
     if (!cepDestino) {
         return window.alert('Digite o CEP');
+    }
+    if (!observation.value) {
+        return window.alert('Digite o nome para ser colocado na caneca!');
     }
     jsonBody.sCepDestino = cepDestino;
 

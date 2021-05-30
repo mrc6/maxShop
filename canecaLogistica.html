@@ -5,48 +5,49 @@
         <title>Caneca Logística</title>
         <style>
             body {
+                align-items: center;
                 display: flex;
                 flex-direction: column;
             }
             h1 {
                 color: blue;
-                font-size: 3em;
+                font-size: 5vw;
             }
             .mainContent {
                 align-items: center;
                 display: flex;
                 flex-direction: column;
-                max-width: 900px;
+                max-width: 600px;
             }
             #btnCalcular {
-                font-size: 1em;;
-                height: 80px;
-                width: 50vw;
+                font-size: 5vw;
+                height: auto;
+                width: 90vw;
             }
             .calculos {
                 align-items: center;
                 display: flex;
                 flex-direction: column;
-                width: 600px;
+                width: 90vw;
             }
             .calculaFrete{
-                font-size: 3em;
+                font-size: 5vw;
             }
             #cep{
                 height: 80px;
-                font-size: 1em;
-                width: 50vw;
+                font-size: 5vw;
+                width: 90vw;
             }
             #comprarBTN {
-                font-size: 1em;;
-                height: 80px;
-                width: 50vw;
+                font-size: 5vw;
+                height: 90px;
+                width: 90vw;
             }
             .descricaoProduto {
                 align-self: flex-start;
             }
             #descricaoFichaTecnica {
-                font-size: large;
+                font-size: 5vw;
                 width: 90vw;
             }
             .fichaTecnica {
@@ -56,14 +57,19 @@
             }
             #fichaTecnica {
                 color: blue;
-                font-size: large;
+                font-size: 5vw;
             }
             #imgProduto {
                 display: flex;
                 flex-direction: column;
+                width: 600px;
+            }
+            #observacao{
+                height: 80px;
+                font-size: 5vw;
                 width: 90vw;
             }
-            @media only screen and (min-width: 660px) {
+            @media only screen and (min-width: 1200px) {
                 body {
                     align-items: center;
                     display: flex;
@@ -124,6 +130,11 @@
                     flex-direction: column;
                     width: 300px;
                 }
+                #observacao{
+                    height: 30px;
+                    font-size: 1em;
+                    width: auto;
+                }
             }
 
         </style>
@@ -139,6 +150,8 @@
                 </div>
                 <div id="calcularFrete" class="calculaFrete">
                     <p id="valorProduto">Preço: R$</p><br />
+                    <label name="observacao">Nome na Caneca</label><br />
+                    <input id="observacao" type="text" name="observacao" maxlength="200"/><br />
                     <label name="cep">Digite seu CEP</label><br />
                     <input id="cep" type="text" name="cep" maxlength="9"/><br />
                     <p id="freteCalculado">Valor do Frete: R$</p><br />

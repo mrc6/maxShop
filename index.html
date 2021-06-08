@@ -3,96 +3,72 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
         <title>Cadastro</title>
-        <style>
-            input {
-                font-size: 5vw;
-                height: 80px;
-                width: 90vw;
-            }
-            fieldset {
-                font-size: 4vw;
-            }
-            label {
-                font-size: 4vw;
-            }
-            p {
-                font-size: 5vw;
-                padding-left: 10px;
-            }
-            #cadastrar {
-                background-color: green;
-                color: white;
-                font-size: 10vw;
-                height: auto;
-                width: 90vw;
-            }
-            @media only screen and (min-width: 1200px) {
-                body {
-                    width: 600px;
-                }
-                input {
-                    font-size: large;
-                    height: auto;
-                    width: 600px;
-                }
-                fieldset {
-                    font-size: large;
-                }
-                label {
-                    font-size: large;
-                }
-                p {
-                    font-size: large;
-                    padding-left: 10px;
-                }
-                #cadastrar {
-                    background-color: green;
-                    color: white;
-                    font-size: large;
-                    height: auto;
-                    width: 600px;
-                }   
-            }
-        </style>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
     </head>
     <body>
-        <div class="mainContent">
+        <div class="container">
             <div>
-                <p>Bem vindo à Max Logística</p>
-                <p>Cadastre-se por favor</p>
+                <p class="h1">Bem vindo à Max Logística</p>
+                <p class="h1">Cadastre-se por favor</p>
                 <fieldset>
-                    <legend>Dados Pessoais</legend>
-                    <label for="senderName">Nome</label>
-                    <input id="nome" type="text" name="senderName" /><br />
-                    <label for="senderCPF">CPF</label>
-                    <input id="cpf" type="text" name="senderCPF" maxLength="14" /><br />
-                    <label for="senderBornDate">Data de Nascimento</label>
-                    <input id="dataNascimento" type="text" name="senderBornDate" maxLength="10"/><br />
-
-                    <p>Contato</p>
-                    <label for="senderAreaCode">DDD</label>
-                    <input id="ddd" type="text" name="senderAreaCode" maxlength="2"/><br />
-                    <label for="senderPhone">Telefone</label>
-                    <input id="phone" type="text" name="senderPhone" maxlength="9"/><br />
-                    <label for="senderEmail">Email</label>
-                    <input id="email" type="text" name="senderEmail" /><br />
-
-                    <p>Endereço</p>
-                    <label for="shippingAddressStreet">Rua / Av.</label>
-                    <input id="rua" type="text" name="shippingAddressStreet" /><br />
-                    <label for="shippingAddressNumber">Número</label>
-                    <input id="numeroEndereco" type="text" name="shippingAddressNumber" /><br />
-                    <label for="shippingAddressComplement">Complemento</label>
-                    <input id="complemento" type="text" name="shippingAddressComplement" /><br />
-                    <label for="shippingAddressDistrict">Bairro</label>
-                    <input id="bairro" type="text" name="shippingAddressDistrict" /><br />
-                    <label for="shippingAddressCity">Cidade</label>
-                    <input id="cidade" type="text" name="shippingAddressCity" /><br />
-                    <label for="shippingAddressState">Estado</label>
-                    <input id="estado" type="text" name="shippingAddressState" maxlength="2"/><br />
-                    <label for="shippingAddressPostalCode">CEP</label>
-                    <input id="cep" type="text" name="shippingAddressPostalCode" maxlength="9"/><br /><br />
-                    <button id="cadastrar" type="button">Cadastrar</button>                   
+                    <legend>Formulário de Cadastro</legend>
+                    <p class="h4 text-muted">Dados pessoais</p>
+                    <div class="form-group">
+                        <label for="senderName">Nome</label>
+                        <input class="form-control" id="nome" type="text" name="senderName" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label for="senderCPF">CPF</label>
+                        <input class="form-control" id="cpf" type="text" name="senderCPF" maxLength="14" /><br />
+                    </div>
+                    <div class="form-group">
+                        <label for="senderBornDate">Data de Nascimento</label>
+                        <input class="form-control" id="dataNascimento" type="text" name="senderBornDate" maxLength="10"/><br />    
+                    </div>
+                    <p  class="h4 text-muted">Contato</p>
+                    <div class="form-group">
+                        <label for="senderAreaCode">DDD</label>
+                        <input class="form-control" id="ddd" type="text" name="senderAreaCode" maxlength="2"/><br />    
+                    </div>
+                    <div class="form-group">
+                        <label for="senderPhone">Telefone</label>
+                        <input class="form-control" id="phone" type="text" name="senderPhone" maxlength="9"/><br />    
+                    </div>
+                    <div class="form-group">
+                        <label for="senderEmail">Email</label>
+                        <input class="form-control" id="email" type="text" name="senderEmail" /><br />    
+                    </div>
+                    <p class="h4 text-muted">Endereço</p>
+                    <div class="form-group">
+                        <label for="shippingAddressStreet">Rua / Av.</label>
+                        <input class="form-control" id="rua" type="text" name="shippingAddressStreet" /><br />    
+                    </div>
+                    <div class="form-group">
+                        <label for="shippingAddressNumber">Número</label>
+                        <input class="form-control" id="numeroEndereco" type="text" name="shippingAddressNumber" /><br />    
+                    </div>
+                    <div class="form-group">
+                        <label for="shippingAddressComplement">Complemento</label>
+                        <input class="form-control" id="complemento" type="text" name="shippingAddressComplement" /><br />    
+                    </div>
+                    <div class="form-group">
+                        <label for="shippingAddressDistrict">Bairro</label>
+                        <input class="form-control" id="bairro" type="text" name="shippingAddressDistrict" /><br />    
+                    </div>
+                    <div class="form-group">
+                        <label for="shippingAddressCity">Cidade</label>
+                        <input class="form-control" id="cidade" type="text" name="shippingAddressCity" /><br />    
+                    </div>
+                    <div class="form-group">
+                        <label for="shippingAddressState">Estado</label>
+                        <input class="form-control" id="estado" type="text" name="shippingAddressState" maxlength="2"/><br />    
+                    </div>
+                    <div class="form-group">
+                        <label for="shippingAddressPostalCode">CEP</label>
+                        <input class="form-control" id="cep" type="text" name="shippingAddressPostalCode" maxlength="9"/><br /><br />    
+                    </div>
+                    <button class="btn btn-success" id="cadastrar" type="button">Cadastrar</button>
                 </fieldset>
             </div>
         </div>
